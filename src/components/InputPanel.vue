@@ -18,6 +18,10 @@
 </template>
 
 <script>
+    /** TODO:
+     * 1. add code and radiobutton for delete garbage (commas, extra spaces, blank lines)
+     * 2. add input for txt file
+     * **/
   export default {
     name: "InputPanel",
     data: () => ({
