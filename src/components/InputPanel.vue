@@ -3,10 +3,17 @@
         <v-textarea
                 outlined
                 name="data-view"
-                :label="(givenCountItems - countItems).toString()"
-                v-model="t"
+                :label="label"
+                v-model="text"
+                :disabled="disabling"
+                @input="$emit('present', 'ещё не определено')"
         ></v-textarea>
-        <p>{{text}}</p>
+        <v-btn
+           elevation="2"
+           :disabled="givenCountItems-countItems !== 0 || disabling"
+           :loading="disabling"
+           @click="calculate"
+        >Посчитать</v-btn>
     </div>
 </template>
 
@@ -14,19 +21,22 @@
   export default {
     name: "InputPanel",
     data: () => ({
-      t: ''
+      text: ''
     }),
     computed: {
-      text() {
-        return this.$store.state.text
+      disabling() {
+        return this.$store.state.isCalculating;
+      },
+      label() {
+        return `${this.countItems} из ${this.givenCountItems}`;
       },
       arrayItems: function() {
-        let items = this.t.split('\n');
+        let items = this.text.split('\n');
         items.shift(); //first item - number
         return items;
       },
       givenCountItems: function(){
-        let endFirstStr = this.t.indexOf('\n');
+        let endFirstStr = this.text.indexOf('\n');
         let firstStr = this.text.slice(0, endFirstStr);
         let number = parseInt(firstStr);
         if (number) return number;
@@ -37,11 +47,30 @@
         if (count) return count;
         return 0;
       },
-
+    },
+    methods: {
+      calculatePopular(array) {
+          let maps = {};
+          let popularElement = array[0],
+            maxCount = 1;
+          array.forEach((element) => {
+            if(maps[element] == null)
+              maps[element] = 1;
+            else
+              maps[element]++;
+            if(maps[element] > maxCount)
+            {
+              popularElement = element;
+              maxCount = maps[element];
+            }
+          });
+          return popularElement;
+      },
+      calculate() {
+        this.$store.commit('setCalculating', true);
+        this.$emit('present', this.calculatePopular(this.arrayItems));
+        this.$store.commit('setCalculating', false);
+      }
     }
   }
 </script>
-
-<style scoped>
-
-</style>

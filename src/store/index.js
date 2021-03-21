@@ -5,20 +5,11 @@ Vue.use(Vuex);
 
 const index = new Vuex.Store({
   state: {
-    count: 0,
-    text: '1 \n\r www'
-  },
-  getters: {
-    getText: (state) => {
-      return state.text;
-    }
+    isCalculating: false
   },
   mutations: {
-    increment (state) {
-      state.count++
-    },
-    setText (state, text) {
-      state.text = text;
+    setCalculating (state, flag) {
+      state.isCalculating = flag;
     }
   }
 });

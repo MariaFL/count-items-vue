@@ -2,10 +2,12 @@
   <v-container>
     <v-row class="text-center">
       <v-col cols="6">
-        <input-panel></input-panel>
+        <input-panel
+                @present="show"
+        ></input-panel>
       </v-col>
       <v-col cols="6">
-        <p>{{countItems}}</p>
+        <p>Самый популярный: <span class="font-weight-bold">{{popular}}</span></p>
       </v-col>
     </v-row>
   </v-container>
@@ -18,10 +20,13 @@
     components: {
       InputPanel
     },
-    computed: {
-      countItems() {
-        return 0;
-      },
+    data:() => ({
+      popular: 'не определено'
+    }),
+    methods: {
+      show(newItem) {
+        this.popular = newItem;
+      }
     }
   }
 </script>
