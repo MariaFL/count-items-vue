@@ -1,10 +1,9 @@
 <template>
-  <div>
-      <div class="d-flex align-center">
-        Кто самый популярный?
-      </div>
-
-      <Presentation/>
+  <div class="d-flex align-center">
+      <v-container>
+          <h2>Кто самый популярный?</h2>
+          <Presentation/>
+      </v-container>
   </div>
 </template>
 

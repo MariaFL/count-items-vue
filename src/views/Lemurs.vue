@@ -14,47 +14,70 @@
             <h2>Результат</h2>
             <p>Выведите самый популярный вид лемуров. Гарантируется, что такой вид только один.</p>
             <h3>Пример</h3>
-            <table>
-                <tr>
-                    <th>исходные данные</th>
-                    <th>результат</th>
-                </tr>
-                <tr>
-                    <td>7</td>
-                    <td>Индриевый</td>
-                </tr>
-                <tr>
-                    <td>Карликовый</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>Индриевый</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>Руконожковый</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>Карликовый</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>Индриевый</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>Индриевый</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>Руконожковый</td>
-                    <td></td>
-                </tr>
-            </table>
+            <v-row>
+                <v-col
+                        cols="12"
+                        sm="6"
+                        md="4"
+                        lg="3"
+                >
+                    <v-card>
+                        <v-card-title
+                                class="subheading font-weight-bold"
+                        >
+                            Исходные данные
+                        </v-card-title>
+                        <v-divider></v-divider>
+                        <v-list>
+                            <v-list-item>
+                                7
+                            </v-list-item>
+                            <v-list-item>
+                                Карликовый
+                            </v-list-item>
+                            <v-list-item>
+                                Индриевый
+                            </v-list-item>
+                            <v-list-item>
+                                Руконожковый
+                            </v-list-item>
+                            <v-list-item>
+                                Индриевый
+                            </v-list-item>
+                            <v-list-item>
+                                Индриевый
+                            </v-list-item>
+                            <v-list-item>
+                                Руконожковый
+                            </v-list-item>
+                        </v-list>
+                    </v-card>
+                </v-col>
+                <v-col
+                        cols="12"
+                        sm="6"
+                        md="4"
+                        lg="3"
+                >
+                    <v-card>
+                        <v-card-title
+                                class="subheading font-weight-bold"
+                        >
+                            Результат
+                        </v-card-title>
+                        <v-divider></v-divider>
+                        <v-list>
+                            <v-list-item>
+                                Индриевый
+                            </v-list-item>
+                        </v-list>
+                    </v-card>
+                </v-col>
+            </v-row>
+
+
         </v-container>
 
-        <Presentation/>
     </div>
 </template>
 
@@ -63,7 +86,3 @@
     name: "Lemurs"
   }
 </script>
-
-<style scoped>
-
-</style>
